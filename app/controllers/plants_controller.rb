@@ -22,6 +22,7 @@ class PlantsController < ApplicationController
     plant = Plant.find_by(params[:id])
     if plant
       plant.destroy
+      head :no_content
     else
       render json: {error: 'Plant not found'}, status: :not_found
     end
